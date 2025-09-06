@@ -48,10 +48,4 @@ public class inicioPAM {
              + "3er parcial: 02/12/2025\n";
     }
 
-    public String porcentajesPorParcial() {
-        return "Evaluación:\n"
-             + "1er parcial: Evidencia de conocimiento 40%, Evidencia de desempeño 20%, Evidencia de producto 30%, Proyecto integrador 10%\n"
-             + "2do parcial: Evidencia de conocimiento 40%, Evidencia de desempeño 20%, Evidencia de producto 20%, Proyecto integrador 20%\n"
-             + "3er parcial: Evidencia de conocimiento 20%, Evidencia de desempeño 10%, Evidencia de producto 40%, Proyecto integrador 30%\n";
-    }
-}
+    
