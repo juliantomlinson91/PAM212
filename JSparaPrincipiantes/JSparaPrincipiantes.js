@@ -1,26 +1,16 @@
-// CONDICIONALES
-let typeCard = 'hola';
+// BUCLES
 
-switch(typeCard) {
-    case 'Debid Card':
-        console.log('This is a debid card');
-        break;
-    case 'Credit Card':
-        console.log('This is a credit card');
-        break;
-    default:
-        console.log('No Card');
+let names = ['jungkook', 'taehyung', 'jin'];
+
+for(let i = 0; i < names.length; i++) { // sirve para trabajar con listas
+    console.log(names[i])
 }
 
+/*
+let count = 0;
 
-
-/*let score = 70;
-
-if (score > 30) {
-    console.log('You need to practice more');
-} else if(score > 15) {
-    console.log('Estas mejorando');
+while(count < 50) {
+    console.log(count);
+    count = count + 1;
 }
-else {
-    console.log('You need to follow this tutorial')
-}*/
+*/
