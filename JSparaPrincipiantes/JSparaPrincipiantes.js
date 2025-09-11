@@ -1,27 +1,17 @@
-// Tipos de datos
-"Hello World" // string
-'Hello World' // string
+// Estoy creando VARIABLES
+var nombredelusuario = "jungkook";
+let lastname = "jeon";
 
-console.log('this is a string');
+// resignando el valor de la variable nombredelusuario
+nombredelusuario = "taehyung";
 
-// Number
-1000000
--2.3
+const PI = 3.1416;
+
+console.log(PI)
+
+// camelcase
+let nombreDePersona = 'jungkookt';
 
 
-// boolean
-true
-false
 
-// array
-['jungkook','taehyung','jin']
-[1, 2, 3]
-[true, false, true, false]
 
-// object
-{
-    "username": 'jungkook',
-    "score": 80.4,
-    "hours": 14,
-    "proffesional": true,
-}
