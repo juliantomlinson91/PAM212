@@ -1,16 +1,6 @@
-// BUCLES
-
-let names = ['jungkook', 'taehyung', 'jin'];
-
-for(let i = 0; i < names.length; i++) { // sirve para trabajar con listas
-    console.log(names[i])
+// FUNCIONES
+function add(n1, n2) {
+    console.log(n1 + n2);
 }
-
-/*
-let count = 0;
-
-while(count < 50) {
-    console.log(count);
-    count = count + 1;
-}
-*/
+ add(3, 2);
+ add(100, 300);
