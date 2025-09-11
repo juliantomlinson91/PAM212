@@ -1,17 +1,8 @@
-// Estoy creando VARIABLES
-var nombredelusuario = "jungkook";
-let lastname = "jeon";
+//  OPERADORES
+let passwordDB = 'pepe123';
 
-// resignando el valor de la variable nombredelusuario
-nombredelusuario = "taehyung";
+let input = 'pepe123'
 
-const PI = 3.1416;
+let result = input == passwordDB;
 
-console.log(PI)
-
-// camelcase
-let nombreDePersona = 'jungkookt';
-
-
-
-
+console.log(result);
