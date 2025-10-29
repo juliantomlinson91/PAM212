@@ -1,39 +1,100 @@
-import { Text, StyleSheet, View } from 'react-native'
+import React from 'react';
+import {
+  View,
+  Text,
+  FlatList,
+  SectionList,
+  StyleSheet,
+} from 'react-native';
 
+
+const alumnos = [
+  { id: '1', nombre: 'Jeon Jungkook' },
+  { id: '2', nombre: 'Joan Sebastian' },
+  { id: '3', nombre: 'Louis Tomlinson' },
+  { id: '4', nombre: 'Belanova' },
+  { id: '5', nombre: 'Omar Courtz' },
+];
+
+const categorias = [
+  {
+    titulo: 'Primavera',
+    data: ['Marzo', 'Abril', 'Mayo'],
+  },
+  {
+    titulo: 'Verano',
+    data: ['Junio', 'Julio', 'Agosto'],
+  },
+  {
+    titulo: 'Otoño',
+    data: ['Septiembre', 'Octubre', 'Noviembre'],
+  },
+  {
+    titulo: 'Invierno',
+    data: ['Diciembre', 'Enero', 'Febrero'],
+  },
+];
 
 export default function FlatListScreen() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>⭐ Ejemplo de FlatList ⭐</Text>
 
-    return (
-      <View style={styles.container}>
-        <Text style={styles.texto}> Próximamente... </Text>
-      </View>
-    )
-  }
+      <FlatList
+        data={alumnos}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.itemBox}>
+            <Text style={styles.itemText}>* {item.nombre}</Text>
+          </View>
+        )}
+      />
+
+      <Text style={styles.title}>⭐ Ejemplo de SectionList ⭐ </Text>
+
+      <SectionList
+        sections={categorias}
+        keyExtractor={(item, index) => item + index}
+        renderItem={({ item }) => (
+          <Text style={styles.itemText}>• {item}</Text>
+        )}
+        renderSectionHeader={({ section: { titulo } }) => (
+          <Text style={styles.sectionHeader}>{titulo}</Text>
+        )}
+      />
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#afecaaff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#FFFF" ,
+    padding: 20,
+    paddingTop: 60,
   },
-  texto: {
-    color: '#0a460fff',
-    fontSize: 30,
-    fontFamily: 'Times New Roman',
+  title: {
+    fontSize: 20,
+    color: '#000000ff',
     fontWeight: 'bold',
-    fontStyle: 'italic',
+    marginBottom: 10,
+    marginTop: 20,
   },
-  texto2: {
-    color: '#73bb9fff',
-    fontSize: 40,
-    fontFamily: 'Courier',
-    fontWeight: '400',
-    textDecorationLine: 'underline',
+  itemBox: {
+    backgroundColor: "#A6F6FF" ,
+    padding: 10,
+    marginVertical: 5,
+    borderRadius: 8,
   },
-  contenedorBotones: {
+  itemText: {
+    color: '#000000ff',
+    fontSize: 16,
+  },
+  sectionHeader: {
+    color: '#364c53ff',
+    fontSize: 18,
+    fontWeight: 'bold',
     marginTop: 15,
-    flexDirection: 'column',
-    gap: 20,
+    marginBottom: 5,
   },
 });
