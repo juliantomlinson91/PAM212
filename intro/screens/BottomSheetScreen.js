@@ -1,39 +1,64 @@
-import { Text, StyleSheet, View } from 'react-native'
+import React, {useRef, useMemo} from 'react'
+import { Text, StyleSheet, View, Button, Image } from 'react-native';
+import BottomSheet, {BottomSheetView} from '@gorhom/bottom-sheet';
+import { Gesture, GestureHandlerRootView } from 'react-native-gesture-handler';
 
+export default function BottomSheetScreen () {
+  const BottomSheetRef = useRef(null);
+  const snapPoints = useMemo(() => [1, '25%', '50%']);
 
-export default function BottomSheetScreen() {
+  const openSheet = () => {
+    BottomSheetRef.current?.expand();
+  };
 
-    return (
-      <View style={styles.container}>
-        <Text style={styles.texto}> Próximamente... </Text>
+  return(
+    <GestureHandlerRootView>
+      <View>
+        <Button
+        title='Abrir'
+        onPress={openSheet}
+      />
       </View>
-    )
-  }
+      <BottomSheet
+        ref={BottomSheet}
+        snapPoints={snapPoints}
+        enablePanDownToClose = {true}
+        backgroundStyle={style.BSheet}
+      >
+        <BottomSheetView
+          style={style.BView}
+        >
 
-const styles = StyleSheet.create({
+          <Text> BottomSheet Ejemplo!! </Text>
+          <Image 
+            style={style.IMG}
+            source={require('../assets/background.png')}
+          />
+
+        </BottomSheetView>
+
+      </BottomSheet>
+    </GestureHandlerRootView>
+  )
+}
+
+const style = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ff8e8eff',
+    backgroundColor: '#463c3cff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
-  texto: {
-    color: '#ff0000ff',
-    fontSize: 30,
-    fontFamily: 'Times New Roman',
-    fontWeight: 'bold',
-    fontStyle: 'italic',
+  BSheet: {
+    backgroundColor: '#282727'
   },
-  texto2: {
-    color: '#73bb9fff',
-    fontSize: 40,
-    fontFamily: 'Courier',
-    fontWeight: '400',
-    textDecorationLine: 'underline',
+  BView: {
+    flex: 1,
+    alignItems: 'center'
   },
-  contenedorBotones: {
-    marginTop: 15,
-    flexDirection: 'column',
-    gap: 20,
-  },
-});
+  IMG: {
+    marginTop: 50,
+    width: 200,
+    height:200
+  }
+})

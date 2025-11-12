@@ -1,39 +1,73 @@
-import { Text, StyleSheet, View } from 'react-native'
+import React, { useState } from 'react';
+import { Modal, View, Text, Button, StyleSheet, } from 'react-native';
 
+export default function App() {
+  const [modalVisible, setModalVisible] = useState(false); 
 
-export default function ModalScreen() {
+  const abrirModal = () => {
+    setModalVisible(true);
+  };
 
-    return (
-      <View style={styles.container}>
-        <Text style={styles.texto}> Próximamente... </Text>
-      </View>
-    )
-  }
+  const cerrarModal = () => {
+    setModalVisible(false);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}> ⭐ Ejemplo del componente Modal ⭐ </Text>
+
+      <Button title="Abrir Modal" onPress={abrirModal} /> 
+
+      <Modal 
+        animationType="fade"            
+        transparent={true}               
+        visible={modalVisible}           
+        onRequestClose={cerrarModal}   
+      >
+
+        <View style={styles.modalContainer}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}> ⭐  ¡Hola! Este es un Modal. ⭐ </Text>
+            <Button title="Cerrar" onPress={cerrarModal} /> 
+          </View>
+        </View>
+      </Modal>
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5cff0ff',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#A6F6FF',
   },
-  texto: {
-    color: '#ff078fff',
-    fontSize: 30,
-    fontFamily: 'Times New Roman',
+  title: {
+    fontSize: 20,
     fontWeight: 'bold',
-    fontStyle: 'italic',
+    marginBottom: 20,
   },
-  texto2: {
-    color: '#73bb9fff',
-    fontSize: 40,
-    fontFamily: 'Courier',
-    fontWeight: '400',
-    textDecorationLine: 'underline',
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0,0,0,0.4)',
   },
-  contenedorBotones: {
-    marginTop: 15,
-    flexDirection: 'column',
-    gap: 20,
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 15,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#A6F6FF',
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalText: {
+    marginBottom: 15,
+    fontSize: 16,
   },
 });
+
+
